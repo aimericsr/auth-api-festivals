@@ -17,9 +17,9 @@ test:
 	go test -v -count=1 -cover ./...
 
 image:
-	docker build -t festivales:latest .
+	docker build -t auth-api-festivales:latest .
 
 container:
-	docker run --name festivales_cont -p 8080:8080 -e DB_SOURCE="postgresql://root:secretPassword@postgres14:5432/festivales?sslmode=disable" festivales:latest
+	docker run --name festivales_cont -p 8080:8080 -e DB_SOURCE="postgresql://root:secretPassword@postgres14:5432/festivales?sslmode=disable" auth-api-festivales:latest
 
 .PHONY: postgres createdb dropdb launchpostgres stoppostgres image container
